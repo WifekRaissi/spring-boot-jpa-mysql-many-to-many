@@ -9,13 +9,9 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.zalando.problem.ProblemModule;
-import org.zalando.problem.validation.ConstraintViolationProblemModule;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -24,15 +20,6 @@ import java.util.List;
 @RequestMapping("/salaries")
 @Api(value = "gestion des salariés", description = "Operations pour la gestion des salariés")
 public class SalariesController {
-
-    @Bean
-    public Jackson2ObjectMapperBuilderCustomizer problemObjectMapperModules() {
-        return jacksonObjectMapperBuilder -> jacksonObjectMapperBuilder.modules(
-                new ProblemModule(),
-                new ConstraintViolationProblemModule()
-        );
-    }
-
     private Logger logger = LoggerFactory.getLogger(SalariesController.class);
     private final SalariesService salariesService;
 
