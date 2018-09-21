@@ -602,3 +602,6 @@ public class SalariesController {
 }
 ```
 
+## Conclusion
+
+On a finit par ce tutorial l'étude du mapping entre les tables par la relation Many to Many. 
