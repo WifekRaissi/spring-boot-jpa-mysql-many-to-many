@@ -46,5 +46,4 @@ public class SalariesServiceImpl implements SalariesService {
             salarie1.setSalaire(salarie.getSalaire());
         }
     }
-
 }

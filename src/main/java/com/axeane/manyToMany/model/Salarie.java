@@ -27,8 +27,6 @@ public class Salarie {
     @NotEmpty
     @NotNull
     private String prenom;
-
-    @NotNull
     private BigDecimal salaire;
 
     @NotEmpty
@@ -95,6 +93,12 @@ public class Salarie {
         this.projets = projets;
     }
 
+    public Salarie(@NotEmpty @NotNull String nom, @NotEmpty @NotNull String prenom, @NotEmpty @NotNull @Size(max = 256, message = "address should have maximum 256 characters") String adresse) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresse = adresse;
+    }
+
     public Salarie() {
     }
 
@@ -105,17 +109,6 @@ public class Salarie {
                 ", nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", salaire=" + salaire +
-                ", adresse='" + adresse + '\'' +
-                '}';
-    }
-
-    @Override
-    public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + nom.hashCode();
-        result = 31 * result + prenom.hashCode();
-        result = 31 * result + salaire.hashCode();
-        result = 31 * result + adresse.hashCode();
-        return result;
+                ", adresse='" + adresse + '\'' + '}';
     }
 }

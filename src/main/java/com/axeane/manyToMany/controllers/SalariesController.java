@@ -1,6 +1,5 @@
 package com.axeane.manyToMany.controllers;
 
-
 import com.axeane.manyToMany.model.Salarie;
 import com.axeane.manyToMany.services.SalariesService;
 import com.axeane.manyToMany.utils.ExceptionResponse;
@@ -86,8 +85,7 @@ public class SalariesController {
     @ApiOperation(value = "update a salaried")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successfully updated salaried"),
-            @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")}
-    )
+            @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")})
     @PutMapping
     public ResponseEntity updateSalaries(@RequestBody Salarie salarie) {
         if (salariesService.findSalariedById(salarie.getId()) != null) {
@@ -101,9 +99,7 @@ public class SalariesController {
     @ApiOperation(value = "delete a salaried")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successfully deleted salaried"),
-            @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
-    }
-    )
+            @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")})
     @DeleteMapping("/{id}")
     public ResponseEntity deleteSalaries(@PathVariable("id") Long id) {
         Salarie salarie = salariesService.findSalariedById(id);

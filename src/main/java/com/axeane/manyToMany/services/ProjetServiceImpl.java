@@ -12,7 +12,6 @@ import java.util.List;
 @Service
 public class ProjetServiceImpl implements ProjetService {
 
-
     private final ProjetRepository projetRepository;
     private final SalariesRepository salariesRepository;
 

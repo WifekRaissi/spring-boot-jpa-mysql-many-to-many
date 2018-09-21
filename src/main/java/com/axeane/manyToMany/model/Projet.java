@@ -1,6 +1,5 @@
 package com.axeane.manyToMany.model;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -29,9 +28,7 @@ public class Projet {
     private Timestamp delai;
     @ManyToMany(mappedBy = "projets")
     @JsonIgnore
-
     private Set<Salarie> salaries = new HashSet<>();
-
 
     public long getId() {
         return id;
@@ -40,7 +37,6 @@ public class Projet {
     public void setId(long id) {
         this.id = id;
     }
-
 
     public Projet() {
     }
@@ -73,17 +69,12 @@ public class Projet {
         return salaries;
     }
 
-    /*public void setSalaries(Set<Salarie> salaries) {
-        this.salaries = salaries;
-    }*/
-
     @Override
     public String toString() {
         return "Tache{" +
                 "id=" + id +
                 ", nom='" + nom + '\'' +
                 ", description='" + description + '\'' +
-                ", delai=" + delai +
-                '}';
+                ", delai=" + delai + '}';
     }
 }

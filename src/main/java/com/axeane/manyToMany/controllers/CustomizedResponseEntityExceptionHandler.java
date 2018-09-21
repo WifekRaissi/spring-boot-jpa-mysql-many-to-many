@@ -19,8 +19,7 @@ public class CustomizedResponseEntityExceptionHandler implements ProblemHandling
     public Jackson2ObjectMapperBuilderCustomizer problemObjectMapperModules() {
         return jacksonObjectMapperBuilder -> jacksonObjectMapperBuilder.modules(
                 new ProblemModule(),
-                new ConstraintViolationProblemModule()
-        );
+                new ConstraintViolationProblemModule());
     }
 
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
@@ -30,7 +29,6 @@ public class CustomizedResponseEntityExceptionHandler implements ProblemHandling
         error.setMessage(exception.getMessage());
         return error;
     }
-
 
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
     public @ResponseBody
